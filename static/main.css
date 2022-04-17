@@ -1,0 +1,30 @@
+body {
+  background-color: #0C1F30;
+  margin-top: 50px;
+  margin-left: 100px;
+  }
+
+p {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1.2em;
+  color: #aaaaaa;
+  align-content: center;
+  text-align: center;
+  }
+
+h3 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1.0em;
+  color: #aaaaaa;
+  }
+
+header {
+  text-align: center;
+  align-content: center;
+}
+
+footer {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 0.6em;
+  color: #aaaaaa;
+}

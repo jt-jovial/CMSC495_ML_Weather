@@ -12,7 +12,7 @@ import numpy as np
 import random
 
 # Read in data
-df = pd.read_csv("Fairbanks.csv", header=[0])
+df = pd.read_csv("static/Fairbanks.csv", header=[0])
 
 # Replace T (trace) values with 0.01 to indicate a trace amount
 df['Precipitation']=df['Precipitation'].replace('T', 0.01)

@@ -8,6 +8,7 @@ Date: 4/7/2022
 
 import time
 from flask import Flask, request, render_template
+import fairbanks
 
 APP = Flask(__name__)
 

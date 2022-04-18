@@ -14,7 +14,7 @@ from sklearn import tree
 from sklearn.neighbors import KNeighborsClassifier
 
 # Read in data
-df = pd.read_csv("Fairbanks.csv", header=[0])
+df = pd.read_csv("static/Fairbanks.csv", header=[0])
 
 # Replace T (trace) values with 0.01 to indicate a trace amount
 df['Precipitation'] = df['Precipitation'].replace('T', 0.01)
@@ -38,7 +38,7 @@ def temperature():
     while True:
         try:
             # Request temperature from user
-            temp = int(input("Please enter your preferred temperature as an integer "
+            temp = int(input('Please enter your preferred temperature as an integer '
                              "(between -20 and 85 degrees Fahrenheit): "))
             if -20 <= temp <= 85:
                 break
@@ -102,7 +102,7 @@ def temperature():
                 break
             else:
                 # Verify and sanitize user input
-                print("Invalid input. Please try again.")
+                print('Invalid input. Please try again.')
         except (ValueError, EOFError):
             # If anything besides a number is entered, the user will receive this message
             print('Invalid Input. Entry must be a number.')
@@ -128,7 +128,7 @@ def snowfall():
     while True:
         try:
             # Request snowfall amount from user in inches
-            snow = int(input("How much accumulated inches of snow would you like to see? (0-24): "))
+            snow = int(input('How much accumulated inches of snow would you like to see? (0-24): '))
             if 0 <= snow <= 24:
                 break
             else:
@@ -158,7 +158,7 @@ def snowfall():
                 break
             else:
                 # If user enters any integer besides 1 or 2, this error message will display
-                print("Invalid input. Please try again.")
+                print('Invalid input. Please try again.')
         except (ValueError, EOFError):
             # If anything besides a number is entered, the user will receive this message
             print('Invalid Input. Entry must be a number.')
@@ -179,7 +179,7 @@ def snowfall():
 
 
 def daylight_hours():
-    """ Daylight hour's method for Menu option 3 """
+    """ Daylight hours method for Menu option 3 """
     while True:
         try:
             # Request the number of daylight hours preferred
@@ -305,7 +305,7 @@ def northern_lights():
                 break
             else:
                 # Verify and sanitize user input
-                print("Invalid input. Please try again.")
+                print('Invalid input. Please try again.')
         except (ValueError, EOFError):
             # If anything besides a number is entered, the user will receive this message
             print('Invalid Input. Entry must be an number.')
@@ -314,11 +314,11 @@ def northern_lights():
     while True:
         try:
             # Request if user has a preference on amount of accumulated snow
-            snowfall_pref = int(input("Do you have a preference for the amount of accumulated snow? "
-                                      "(1 for yes, 2 for no): "))
+            snowfall_pref = int(input('Do you have a preference for the amount of accumulated snow? '
+                                      '(1 for yes, 2 for no): '))
             if snowfall_pref == 1:
                 # Request snowfall amount from user in inches
-                snow = int(input("How much accumulated inches of snow would you like to see? (0-24): "))
+                snow = int(input('How much accumulated inches of snow would you like to see? (0-24): '))
                 if 0 <= snow <= 24:
                     break
                 else:
@@ -350,7 +350,7 @@ def northern_lights():
 
 # How program begins
 while factor != 5:
-    ''' While loop for Main Menu '''
+    """ While loop for Main Menu """
     # Print statements are used just for proof of concept while experimenting. 
     # Code will be merged with front end webpage development and user will enter input through webpage
     print('What is the most important factor to you when visiting Fairbanks, AK?')
@@ -382,5 +382,5 @@ while factor != 5:
         print('Invalid Input. Entry must be an integer.\n')
         continue
     # Print the target month for the user
-    print("\nYou should visit Fairbanks, AK in", months[month], "based on your selection.\n")
+    print('\nYou should visit Fairbanks, AK in', months[month], 'based on your selection.\n')
     

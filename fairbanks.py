@@ -45,7 +45,7 @@ def season_predict(temp):
     # Seasons: 0 == Winter, 1 == Spring, 2 == Summer, 3 == Fall
     # remove brackets from season
     for i in season:
-    season = i
+        season = i
     return season
     
 

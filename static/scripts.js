@@ -33,7 +33,7 @@ function form_maker(input) {
     function temp_form() {
         // Create a form dynamically
         let form = document.createElement("form");
-        form.setAttribute("method", "get");
+        form.setAttribute("method", "post");
         form.setAttribute("action", "result");
         form.setAttribute("id", "ak-form");
 
@@ -55,7 +55,7 @@ function form_maker(input) {
         let s = document.createElement("input");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
-        s.setAttribute("name", "Submit");
+        s.setAttribute("name", "temp_submit");
         s.setAttribute("id", "button");
         s.setAttribute("form", "ak-form");
 
@@ -80,7 +80,7 @@ function form_maker(input) {
 
     function day_form() {
         let form = document.createElement("form");
-        form.setAttribute("method", "get");
+        form.setAttribute("method", "post");
         form.setAttribute("action", "result");
         form.setAttribute("id", "ak-form");
 
@@ -90,7 +90,7 @@ function form_maker(input) {
         let s = document.createElement("input");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
-        s.setAttribute("name", "Submit");
+        s.setAttribute("name", "day_submit");
         s.setAttribute("id", "button");
         s.setAttribute("form", "ak-form");
 
@@ -102,7 +102,7 @@ function form_maker(input) {
     function snow_form() {
         // Create a form dynamically
         let form = document.createElement("form");
-        form.setAttribute("method", "get");
+        form.setAttribute("method", "post");
         form.setAttribute("action", "result");
         form.setAttribute("id", "ak-form");
 
@@ -125,7 +125,7 @@ function form_maker(input) {
         let s = document.createElement("input");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
-        s.setAttribute("name", "Submit");
+        s.setAttribute("name", "snow_submit");
         s.setAttribute("id", "button");
         s.setAttribute("form", "ak-form");
 
@@ -151,7 +151,7 @@ function form_maker(input) {
     function light_form() {
         // Create a form dynamically
         let form = document.createElement("form");
-        form.setAttribute("method", "get");
+        form.setAttribute("method", "post");
         form.setAttribute("action", "result");
         form.setAttribute("id", "ak-form");
 
@@ -167,7 +167,7 @@ function form_maker(input) {
         let s = document.createElement("input");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
-        s.setAttribute("name", "Submit");
+        s.setAttribute("name", "light_submit");
         s.setAttribute("id", "button");
         s.setAttribute("form", "ak-form");
 

@@ -8,6 +8,7 @@ Date: 4/7/2022
 
 import time
 from flask import Flask, request, render_template
+from fairbanks import season_predict, temperature, daylight_hours, snowfall, northern_lights
 
 APP = Flask(__name__)
 
@@ -51,8 +52,35 @@ def hello_index():
     return my_reply
 
 
-@APP.route('/result', methods=["POST", "GET"])
+@APP.route('/result', methods=["POST"])
 def form_post():
+    if request.method == 'POST':
+        result = None
+        assert 'day-check' in request.form
+        if request.form['day-check'] == 'true':
+            daylight = 1
+            hours = request.form['daylight']  # need to add number check here
+        else:
+            daylight = 2
+            hours = None
+        if "temp_submit" in request.form:
+            #temperature(temp, season, daylight, hours=None)
+            season = season_predict(request.form['temp'])
+            result = temperature(request.form['temp'], season, daylight, hours)
+        elif "day_submit" in request.form:
+            #daylight_hours(hours, choice=3)
+            result = daylight_hours(hours)
+        elif "snow_submit" in request.form:
+            #snowfall(snow, daylight, hours=None)
+            result = snowfall(request.form['snow'], daylight, hours)
+        elif "light_submit" in request.form:
+            #northern_lights(daylight, snowfall_pref, hours=None, snow=None)
+            result = northern_lights(daylight, 2, hours)
+            #need to verify snowfall_pref and snow are redundant
+        for i in request.form:
+            print(i, request.form[i])
+
+        print("Result is " + str(result))
     return render_template('result.html')
 
 

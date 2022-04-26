@@ -53,13 +53,12 @@ def hello_index():
 
 
 @APP.route('/result', methods=["POST"])
-def form_post():
+def form_post(result=None):
     if request.method == 'POST':
-        result = None
         assert 'day-check' in request.form
         if request.form['day-check'] == 'true':
             daylight = 1
-            hours = request.form['daylight']  # need to add number check here
+            hours = float(request.form['daylight'])  # need to add number check here
         else:
             daylight = 2
             hours = None
@@ -81,7 +80,8 @@ def form_post():
             print(i, request.form[i])
 
         print("Result is " + str(result))
-    return render_template('result.html')
+        result = int(result)
+    return render_template('result.html', month=result)
 
 
 APP.run(host='0.0.0.0', port=8080)

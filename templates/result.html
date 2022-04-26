@@ -9,5 +9,10 @@
 </header>
 <body>
     <p>This is where results will go.</p>
+    {% if month %}
+        <h1>Received {{ month }} from algorithm!</h1>
+    {% else %}
+        <h1>Error! No output received!</h1>
+    {% endif %}}
 </body>
 </html>

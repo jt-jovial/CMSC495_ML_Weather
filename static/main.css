@@ -12,6 +12,14 @@ p {
   text-align: center;
   }
 
+h1 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 2.0em;
+  color: #aaaaaa;
+  align-content: center;
+  text-align: center;
+  }
+
 h3 {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 1.0em;

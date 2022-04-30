@@ -7,7 +7,10 @@ Front end website<br>
 Javascript dynamic menu selection<br>
 Variable passthrough to ML methods<br>
 Result passthrough to results page<br>
+Input validation in Javascript form<br>
+Result page image/video integration<br>
 <br>
 Next up:<br>
-Input validation in Javascript form<br>
-Result page image/video integration
+Cleaning<br>
+Images/Text for each month and presentation stuff<br>
+

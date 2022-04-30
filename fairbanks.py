@@ -75,7 +75,12 @@ def temperature(temp, season, daylight, hours=None):
 
     # If the user has a preference of number of daylight hours, their hours will be converted to minutes
     if daylight == 1: # User has preference
-        minutes = hours * 60 # Need to add validation based on seasonal m_range in frontend      
+        minutes = hours * 60 
+        # Input validation for range
+        if minutes < m_range[0]:
+            minutes = m_range[0]
+        elif minutes > m_range[1]:
+            minutes = m_range[1]     
     elif daylight == 2: # User has no preference
         minutes = random.randint(m_range[0], m_range[1]+1)
         
@@ -98,6 +103,11 @@ def snowfall(snow, daylight, hours=None):
     """ Snowfall method for Menu option 2 """
     # If the user has a preference of number of daylight hours, their hours will be converted to minutes
     if daylight == 1: # User has preference
+        # Input validation for range
+        if hours < 3.5:
+            hours = 3.5
+        elif hours > 18.5:
+            hours = 18.5
         minutes = hours * 60 # Need to add validation in frontend; hours must be between 3.5-18.5   
     elif daylight == 2: # User has no preference
         minutes = random.randint(210, 1110)
@@ -118,6 +128,11 @@ def snowfall(snow, daylight, hours=None):
 
 def daylight_hours(hours, choice=3):
     """ Daylight hours method for Menu option 3 """
+    # Input validation for range
+    if hours < 3.5:
+        hours = 3.5
+    elif hours > 22:
+        hours = 22
     minutes = hours * 60      
     # Once minutes are calculated, a season can be determined
     # Winter: 210-419, Fall/Winter: 420-719, Fall/Spring: 720-840, Spring/Summer: 841-1140, Summer: 1140-1320
@@ -171,6 +186,11 @@ def northern_lights(daylight, snowfall_pref, hours=None, snow=None):
 
     # If the user has a preference of number of daylight hours, their hours will be converted to minutes
     if daylight == 1: # User has preference
+        # Input validation for range
+        if hours < 3.5:
+            hours = 3.5
+        elif hours > 16.5:
+            hours = 16.5
         minutes = hours * 60 # Need to add validation in frontend; hours must be between 3.5-16.5  
     elif daylight == 2: # User has no preference
         minutes = random.randint(210, 990)

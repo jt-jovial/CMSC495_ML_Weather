@@ -16,10 +16,12 @@ function day_input(in_bool) {
     let DAYLIGHT = document.createElement("input");
 
     if (in_bool === "true") {
-        DAYLIGHT.setAttribute("type", "text");
+        DAYLIGHT.setAttribute("type", "number");
         DAYLIGHT.setAttribute("name", "daylight");
         DAYLIGHT.setAttribute("id", "daylight");
         DAYLIGHT.setAttribute("form", "ak-form");
+        DAYLIGHT.setAttribute("min", "3");
+        DAYLIGHT.setAttribute("max", "22");
         let DAYNUMTEXT = document.createTextNode("How many daylight hours would you prefer? (3.5-22): ");
         insertpoint.appendChild(DAYNUMTEXT);
         insertpoint.append(DAYLIGHT);
@@ -39,9 +41,11 @@ function form_maker(input) {
 
         // Create an input element for temperature
         let TEMP = document.createElement("input");
-        TEMP.setAttribute("type", "text");
+        TEMP.setAttribute("type", "number");
         TEMP.setAttribute("name", "temp");
         TEMP.setAttribute("placeholder", "Degrees");
+        TEMP.setAttribute("min", "-65");
+        TEMP.setAttribute("max", "100");
 
         // Create a selection element for daylight hours
         let DAY = document.createElement("select");
@@ -108,10 +112,12 @@ function form_maker(input) {
 
         // Create an input element for snowfall
         let SNOW = document.createElement("input");
-        SNOW.setAttribute("type", "text");
+        SNOW.setAttribute("type", "number");
         SNOW.setAttribute("name", "snow");
         SNOW.setAttribute("form", "ak-form");
         SNOW.setAttribute("placeholder", "Inches");
+        SNOW.setAttribute("min", "0");
+        SNOW.setAttribute("max", "24")
 
         // Create a selection element for daylight hours
         let DAY = document.createElement("select");

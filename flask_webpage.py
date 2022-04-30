@@ -10,8 +10,8 @@ import time
 from flask import Flask, request, render_template
 from fairbanks import season_predict, temperature, daylight_hours, snowfall, northern_lights
 
-APP = Flask(__name__)
 
+APP = Flask(__name__)
 
 @APP.route('/')  # Decorator modifies following function
 def hello_index():
@@ -54,6 +54,22 @@ def hello_index():
 
 @APP.route('/result', methods=["POST"])
 def form_post(result=None):
+    # Video IDs for results page
+    ytDict = {
+        '1': '4a9ReaUJKRM',
+        '2': 'vOJS_-S9C5c',
+        '3': 'KFUQ25DlbzM',
+        '4': 'FQMq_jg4Vfo',
+        '5': 'DMIuymECl1U',
+        '6': 'Qsw6f62wH34',
+        '7': 'MHYTma3HcHs',
+        '8': '2dApeKmzL6M',
+        '9': 'jpR7eRKUpI8',
+        '10': 'lacsjnmSmfw',
+        '11': 'vOJS_-S9C5c',
+        '12': 'vOJS_-S9C5c'
+    }
+
     if request.method == 'POST':
         assert 'day-check' in request.form
         if request.form['day-check'] == 'true':
@@ -63,25 +79,25 @@ def form_post(result=None):
             daylight = 2
             hours = None
         if "temp_submit" in request.form:
-            #temperature(temp, season, daylight, hours=None)
+            # temperature(temp, season, daylight, hours=None)
             season = season_predict(request.form['temp'])
             result = temperature(request.form['temp'], season, daylight, hours)
         elif "day_submit" in request.form:
-            #daylight_hours(hours, choice=3)
+            # daylight_hours(hours, choice=3)
             result = daylight_hours(hours)
         elif "snow_submit" in request.form:
-            #snowfall(snow, daylight, hours=None)
+            # snowfall(snow, daylight, hours=None)
             result = snowfall(request.form['snow'], daylight, hours)
         elif "light_submit" in request.form:
-            #northern_lights(daylight, snowfall_pref, hours=None, snow=None)
+            # northern_lights(daylight, snowfall_pref, hours=None, snow=None)
             result = northern_lights(daylight, 2, hours)
-            #need to verify snowfall_pref and snow are redundant
+            # need to verify snowfall_pref and snow are redundant
         for i in request.form:
             print(i, request.form[i])
 
         print("Result is " + str(result))
         result = int(result)
-    return render_template('result.html', month=result)
+    return render_template('result.html', month=result, yt=ytDict[str(result)])
 
 
 APP.run(host='0.0.0.0', port=8080)

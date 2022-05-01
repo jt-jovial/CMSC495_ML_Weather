@@ -7,7 +7,7 @@ body {
 p {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 1.2em;
-  color: #aaaaaa;
+  color: #eeeeee;
   align-content: center;
   text-align: center;
   }
@@ -15,7 +15,7 @@ p {
 h1 {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 2.0em;
-  color: #aaaaaa;
+  color: #eeeeee;
   align-content: center;
   text-align: center;
   }
@@ -23,7 +23,7 @@ h1 {
 h3 {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 1.0em;
-  color: #aaaaaa;
+  color: #eeeeee;
   }
 
 header {
@@ -34,5 +34,5 @@ header {
 footer {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 0.6em;
-  color: #aaaaaa;
+  color: #eeeeee;
 }

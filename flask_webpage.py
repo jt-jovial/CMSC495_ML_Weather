@@ -10,12 +10,13 @@ import time
 from flask import Flask, request, render_template
 from fairbanks import season_predict, temperature, daylight_hours, snowfall, northern_lights
 
-
 APP = Flask(__name__)
+
 
 @APP.route('/')  # Decorator modifies following function
 def hello_index():
-    """ Returns my_reply when triggered by visit of specified path """
+    """ Returns my_reply (main webpage) when triggered by visit of specified path """
+
     my_reply = """
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +55,31 @@ def hello_index():
 
 @APP.route('/result', methods=["POST"])
 def form_post(result=None):
-    # Video IDs for results page
-    ytDict = {
+    """
+    Received the form as posted from the main webpage and returns results
+
+    Data is extracted from the request.form dictionary, and the correct ML
+    algorithm is selected by determining the presence of particular keys
+    as specified in the JavaScript.
+
+    Result month from ML method is passed through to the results.html page
+    and dynamic content is inserted based on the month.
+
+    Post is handled through the request.form object with the following valid keys:
+        day-check
+        daylight
+        day_submit
+        light_submit
+        snow
+        snow_submit
+        temp
+        temp_submit
+
+    Returns:
+        results.html with pass-through dynamic content
+    """
+
+    yt_dict = {  # Video IDs for results page per month
         '1': '4a9ReaUJKRM',
         '2': 'vOJS_-S9C5c',
         '3': 'KFUQ25DlbzM',
@@ -68,6 +92,21 @@ def form_post(result=None):
         '10': 'lacsjnmSmfw',
         '11': 'vOJS_-S9C5c',
         '12': 'vOJS_-S9C5c'
+    }
+
+    month_map = {  # Maps month name to number
+        '1': 'January',
+        '2': 'February',
+        '3': 'March',
+        '4': 'April',
+        '5': 'May',
+        '6': 'June',
+        '7': 'July',
+        '8': 'August',
+        '9': 'September',
+        '10': 'October',
+        '11': 'November',
+        '12': 'December'
     }
 
     if request.method == 'POST':
@@ -99,7 +138,7 @@ def form_post(result=None):
 
         print("Result is " + str(result))
         result = int(result)
-    return render_template('result.html', month=result, yt=ytDict[str(result)])
+    return render_template('result.html', month=month_map[str(result)], yt=yt_dict[str(result)])
 
 
 APP.run(host='0.0.0.0', port=8080)

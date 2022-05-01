@@ -71,19 +71,21 @@ def form_post(result=None):
     }
 
     if request.method == 'POST':
-        assert 'day-check' in request.form
-        if request.form['day-check'] == 'true':
-            daylight = 1
-            hours = float(request.form['daylight'])  # need to add number check here
-        else:
-            daylight = 2
-            hours = None
+
+        if 'day-check' in request.form:
+            if request.form['day-check'] == 'true':
+                daylight = 1
+                hours = float(request.form['daylight'])
+            else:
+                daylight = 2
+                hours = None
         if "temp_submit" in request.form:
             # temperature(temp, season, daylight, hours=None)
             season = season_predict(request.form['temp'])
             result = temperature(request.form['temp'], season, daylight, hours)
         elif "day_submit" in request.form:
             # daylight_hours(hours, choice=3)
+            hours = float(request.form['daylight'])
             result = daylight_hours(hours)
         elif "snow_submit" in request.form:
             # snowfall(snow, daylight, hours=None)

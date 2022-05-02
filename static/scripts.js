@@ -1,3 +1,15 @@
+/**
+ * @fileoverview Script file governing menus on webpage
+ * @author John Prah
+ * @version 04/30/2022
+ * @see CMSC495 Team 6 - Fairbanks Machine Learning Project
+ */
+
+/**
+ * Top level function resets the dynamic entry locations within the webpage
+ *     and drive the form creation process.  All form elements are under "ak-form"
+ * @param input The top level dropdown menu selection driving the rest of the form
+ */
 function select(input) {
     let value = input.value;
     //reset form
@@ -11,6 +23,10 @@ function select(input) {
     form_maker(value);
 }
 
+/**
+ * Drives the part of the menu related to daylight hour preference
+ * @param in_bool selection of daylight preference, if true will provide input to user
+ */
 function day_input(in_bool) {
     let insertpoint = document.getElementById("daylight-form");
     let DAYLIGHT = document.createElement("input");
@@ -33,7 +49,14 @@ function day_input(in_bool) {
     }
 }
 
+/**
+ * Main form, calls sub functions based on top level selection through a switch box check
+ * @param input Top level menu selection
+ */
 function form_maker(input) {
+    /**
+     * Temperature priority form
+     */
     function temp_form() {
         // Create a form dynamically
         let form = document.createElement("form");
@@ -78,19 +101,28 @@ function form_maker(input) {
         form.innerHTML += "<br>";
         form.append(DAY);
 
+        // Append form to correct location in page
         document.getElementById("dynamic-form")
             .appendChild(form);
         document.getElementById("execute-button").append(s);
+
+        // Create a listener for daylight preference selection
         document.getElementById("day-check").addEventListener(
             "change", function() {day_input(this.value);}, false);
     }
 
+    /**
+     * Daylight priority form
+     * Skips most form elements in deference to daylight input
+     */
     function day_form() {
+        // Create a form dynamically
         let form = document.createElement("form");
         form.setAttribute("method", "post");
         form.setAttribute("action", "result");
         form.setAttribute("id", "ak-form");
 
+        // Call the day input method directly
         day_input("true")
 
         // Create a submit button
@@ -101,11 +133,15 @@ function form_maker(input) {
         s.setAttribute("id", "button");
         s.setAttribute("form", "ak-form");
 
+        // Append form to correct location in page
         document.getElementById("dynamic-form")
             .appendChild(form);
         document.getElementById("execute-button").append(s);
     }
 
+    /**
+     * Snowfall priority form
+     */
     function snow_form() {
         // Create a form dynamically
         let form = document.createElement("form");
@@ -151,13 +187,19 @@ function form_maker(input) {
         form.innerHTML += "<br>";
         form.append(DAY);
 
+        // Append form to the correct location in page
         document.getElementById("dynamic-form")
             .appendChild(form);
         document.getElementById("execute-button").append(s);
+
+        // Add a listener for daylight preference
         document.getElementById("day-check").addEventListener(
             "change", function() {day_input(this.value);}, false);
     }
 
+    /**
+     * Northern lights priority form
+     */
     function light_form() {
         // Create a form dynamically
         let form = document.createElement("form");
@@ -192,13 +234,20 @@ function form_maker(input) {
         form.innerHTML += "<br>";
         form.append(DAY);
 
+        // Append the form to correct page location
         document.getElementById("dynamic-form")
             .appendChild(form);
         document.getElementById("execute-button").append(s);
+
+        // Add a listener for daylight preference
         document.getElementById("day-check").addEventListener(
             "change", function() {day_input(this.value);}, false);
     }
 
+    /**
+     * Governing switch box to select correct form method.
+     * input is pulled from the first dropdown on the html page
+     */
     switch (input) {
         case "temp":
             temp_form();

@@ -69,8 +69,8 @@ function form_maker(input) {
         TEMP.setAttribute("type", "number");
         TEMP.setAttribute("name", "temp");
         TEMP.setAttribute("placeholder", "Degrees");
-        TEMP.setAttribute("min", "-65");
-        TEMP.setAttribute("max", "100");
+        TEMP.setAttribute("min", "-20");
+        TEMP.setAttribute("max", "85");
         TEMP.setAttribute("required", "");
 
         // Create a selection element for daylight hours

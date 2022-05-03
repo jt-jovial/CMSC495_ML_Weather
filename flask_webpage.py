@@ -80,18 +80,18 @@ def form_post(result=None):
     """
 
     yt_dict = {  # Video IDs for results page per month
-        '1': '4a9ReaUJKRM',
-        '2': 'vOJS_-S9C5c',
+        '1': 'Z5lE1yBAUcM',
+        '2': 'NumGlgKQ0WU',
         '3': 'KFUQ25DlbzM',
-        '4': 'FQMq_jg4Vfo',
+        '4': '4a9ReaUJKRM',
         '5': 'DMIuymECl1U',
         '6': 'Qsw6f62wH34',
         '7': 'MHYTma3HcHs',
         '8': '2dApeKmzL6M',
         '9': 'jpR7eRKUpI8',
-        '10': 'lacsjnmSmfw',
+        '10': 'YBUVvbXi9vM',
         '11': 'vOJS_-S9C5c',
-        '12': 'vOJS_-S9C5c'
+        '12': 'vqSn-PXY4Y8'
     }
 
     month_map = {  # Maps month name to number

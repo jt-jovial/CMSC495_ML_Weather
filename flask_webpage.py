@@ -79,11 +79,11 @@ def form_post(result=None):
         results.html with pass-through dynamic content
     """
 
-    yt_dict = {  # Video IDs for results page per month
-        '1': 'Z5lE1yBAUcM',
-        '2': 'NumGlgKQ0WU',
+ yt_dict = {  # Video IDs for results page per month
+        '1': '4a9ReaUJKRM',
+        '2': 'Z5lE1yBAUcM',
         '3': 'KFUQ25DlbzM',
-        '4': '4a9ReaUJKRM',
+        '4': 'NumGlgKQ0WU',
         '5': 'DMIuymECl1U',
         '6': 'Qsw6f62wH34',
         '7': 'MHYTma3HcHs',

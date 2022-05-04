@@ -9,6 +9,7 @@ Date: 4/7/2022
 import time
 from flask import Flask, request, render_template
 from fairbanks import season_predict, temperature, daylight_hours, snowfall, northern_lights
+import month_content
 
 APP = Flask(__name__)
 
@@ -138,7 +139,10 @@ def form_post(result=None):
 
         print("Result is " + str(result))
         result = int(result)
-    return render_template('result.html', month=month_map[str(result)], yt=yt_dict[str(result)])
+    return render_template('result.html',
+                           month=month_map[str(result)],
+                           yt=yt_dict[str(result)],
+                           content=month_content.CONTENT[str(result)])
 
 
 APP.run(host='0.0.0.0', port=8080)

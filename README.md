@@ -1,5 +1,6 @@
 # CMSC495_ML_Weather
 Machine Learning project predicting weather data for CMSC495
+Feature complete<br>
 
 Implemented:<br>
 ML Methods<br>
@@ -10,7 +11,5 @@ Result passthrough to results page<br>
 Input validation in Javascript form and required fields<br>
 Result page image/video integration<br>
 Dictionary of potential youtube videos for each month<br>
-<br>
-Next up:<br>
-Cleaning<br>
-Images/Text for each month and presentation stuff<br>
+Dynamic content and links according to month<br>
+Reset button

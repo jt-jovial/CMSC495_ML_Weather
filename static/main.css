@@ -54,3 +54,15 @@ footer {
   font-size: 0.6em;
   color: #eeeeee;
 }
+
+a:link {
+  color: #00aa33;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1.0em;
+}
+
+a:visited {
+  color: #ffcc00;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1.0em;
+}
